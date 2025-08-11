@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results | AI IMAGE ANALYZER</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI</h1>
+            <h1>IMAGE</h1>
+            <h1>ANALYZER</h1>
+        </header>
+
+        <main class="results-container">
+            <h2>ANALYSIS RESULTS</h2>
+            
+            <div class="image-comparison">
+                <div class="image-card">
+                    <div class="image-label">ORIGINAL</div>
+                    <img src="{{ url_for('uploaded_file', filename=analysis.filename) }}" alt="Original Image">
+                </div>
+                <div class="image-card">
+                    <div class="image-label">EDGE DETECTION</div>
+                    <img src="{{ url_for('uploaded_file', filename=analysis.edge_path) }}" alt="Edge Detection">
+                </div>
+            </div>
+
+            <div class="color-display">
+                <div class="color-box" style="background-color: {{ analysis.dominant_color.hex }};"></div>
+                <div>
+                    <p><strong>DOMINANT COLOR</strong></p>
+                    <p>RGB: {{ analysis.dominant_color.rgb }}</p>
+                    <p>HEX: {{ analysis.dominant_color.hex }}</p>
+                </div>
+            </div>
+
+            <div class="image-info">
+                <p><strong>DIMENSIONS:</strong> {{ analysis.size[0] }} × {{ analysis.size[1] }} pixels</p>
+                <p><strong>FORMAT:</strong> {{ analysis.format }}</p>
+            </div>
+
+            <a href="/" class="back-btn">ANALYZE ANOTHER</a>
+        </main>
+    </div>
+</body>
+</html>

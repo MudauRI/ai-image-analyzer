@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - AI Image Analyzer{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+    <div class="container">
+        <h1 class="section-title">Contact Me</h1>
+        
+        <div class="contact-container">
+            <!-- Contact Form Column -->
+            <div class="form-column">
+                <h2>Send a Message</h2>
+                <form id="contactForm" action="https://formspree.io/f/your-formspree-id" method="POST">
+                    <input type="hidden" name="_subject" value="New message from AI Image Analyzer">
+                    <input type="hidden" name="_replyto" value="rebafenyi@example.com">
+                    <input type="hidden" name="_next" value="{{ url_for('index', _anchor='contact-success') }}">
+                    
+                    <div class="form-group">
+                        <label for="name">Your Name*</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service</option>
+                            <option value="web-dev">Web Development</option>
+                            <option value="graphic-design">Graphic Design</option>
+                            <option value="photography">Photography</option>
+                            <option value="consultation">Consultation</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message*</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group" style="display:none">
+                        <label for="honeypot">Don't fill this out</label>
+                        <input type="text" id="honeypot" name="_honeypot">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="spinner"></span>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Contact Info Column -->
+            <div class="info-column">
+                <div class="creator-card">
+                    <div class="creator-image">
+                        <!-- Add your profile image here -->
+                        <div class="placeholder-img">MR</div>
+                    </div>
+                    <h3>Mudau Rebafenyi Israel</h3>
+                    <p class="title">Professional Web Developer & Designer</p>
+                    
+                    <div class="contact-details">
+                        <div class="detail-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>083 955 7604</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>rebafenyi@example.com</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <address>
+                                71 Cayenne Street<br>
+                                Monavoni, Centurion<br>
+                                0157, South Africa
+                            </address>
+                        </div>
+                    </div>
+                    
+                    <div class="business-hours">
+                        <h4>Business Hours</h4>
+                        <p>Mon-Fri: 8:00 AM - 5:00 PM</p>
+                        <p>Sat: 9:00 AM - 1:00 PM</p>
+                        <p>Sun: Closed</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Photography Portfolio">
+                            <i class="fas fa-camera"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Behance">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Message Anchor -->
+<div id="contact-success" class="success-message" style="display:none">
+    <div class="container">
+        <div class="message-box">
+            <i class="fas fa-check-circle"></i>
+            <h3>Thank You!</h3>
+            <p>Your message has been sent successfully. I'll get back to you soon.</p>
+            <a href="{{ url_for('index') }}" class="btn">Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

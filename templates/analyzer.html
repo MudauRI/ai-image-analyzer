@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Image Analyzer{% endblock %}
+
+{% block content %}
+<div class="analyzer-container">
+    <div class="container">
+        <h1>Image Analyzer</h1>
+        <p>Upload an image to analyze its visual properties</p>
+        
+        <form method="post" action="/analyze" enctype="multipart/form-data" class="upload-form">
+            <input type="file" name="file" id="file-upload" accept="image/*" required>
+            <label for="file-upload" class="upload-label">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 13a1 1 0 0 0-1 1v.38l-1.48-1.48a2.79 2.79 0 0 0-3.93 0l-.7.7-2.48-2.48a2.85 2.85 0 0 0-3.93 0L4 12.6V7a1 1 0 0 1 1-1h7a1 1 0 0 0 0-2H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-5a1 1 0 0 0-1-1zM5 20a1 1 0 0 1-1-1v-3.57l2.9-2.9a.79.79 0 0 1 1.09 0l3.17 3.17 4.29 4.3zm13-1a.89.89 0 0 1-.18.53L13.31 15l.7-.7a.77.77 0 0 1 1.1 0L18 17.22zm4.71-14.71l-14-14a1 1 0 0 0-1.42 0l-14 14a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0L5 7.41V19a1 1 0 0 0 1 1h11a1 1 0 0 0 0-2H7a1 1 0 0 1-1-1V5.41l12.29 12.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"/>
+                </svg>
+                <span>Choose an image</span>
+                <p class="file-types">Supports: JPG, PNG, WEBP (Max 8MB)</p>
+            </label>
+            <button type="submit">Analyze Image</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
